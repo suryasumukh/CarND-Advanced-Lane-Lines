@@ -124,6 +124,7 @@ The detection is mostly performed with histogram and sliding-window techniques s
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 The code can be found in the `draw_lines()` function. The code mostly follows suggestion for course notes.
+The lane position is calculated by averaging the values of left_fit and right_fit at the bottom of the image. The difference between the center of image and the lane position is the relative position of the lane in the image.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
