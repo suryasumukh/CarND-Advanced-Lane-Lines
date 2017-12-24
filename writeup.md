@@ -14,27 +14,26 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output_images/color_threshold1.png
-[image2]: ./output_images/color_threshold2.png
-[image3]: ./output_images/combined.png
-[image4]: ./output_images/combined1.png
-[image5]: ./output_images/hls.png
-[image6]: ./output_images/hsv.png
-[image7]: ./output_images/lab.png
-[image8]: ./output_images/lane1.png
-[image9]: ./output_images/lane2.png
-[image10]: ./output_images/lane_fit.png
-[image11]: ./output_images/perspective1.png
-[image12]: ./output_images/perspective2.png
-[image13]: ./output_images/rgb.png
-[image14]: ./output_images/save_output_here.txt
-[image15]: ./output_images/sliding_window.png
-[image16]: ./output_images/undistorted1.png
-[image17]: ./output_images/undistorted2.png
-[image18]: ./output_images/unwarped.png
-[image19]: ./output_images/warped.png
-[image20]: ./output_images/yuv.png
----
+[image1]: ./output_images/color_threshold1.png ""
+[image2]: ./output_images/color_threshold2.png ""
+[image3]: ./output_images/combined.png ""
+[image4]: ./output_images/combined1.png ""
+[image5]: ./output_images/hls.png ""
+[image6]: ./output_images/hsv.png ""
+[image7]: ./output_images/lab.png ""
+[image8]: ./output_images/lane1.png ""
+[image9]: ./output_images/lane2.png ""
+[image10]: ./output_images/lane_fit.png ""
+[image11]: ./output_images/perspective1.png ""
+[image12]: ./output_images/perspective2.png ""
+[image13]: ./output_images/rgb.png ""
+[image14]: ./output_images/save_output_here.txt ""
+[image15]: ./output_images/sliding_window.png ""
+[image16]: ./output_images/undistorted1.png ""
+[image17]: ./output_images/undistorted2.png ""
+[image18]: ./output_images/unwarped.png ""
+[image19]: ./output_images/warped.png ""
+[image20]: ./output_images/yuv.png ""
 
 ### Camera Calibration
 
@@ -46,23 +45,23 @@ First a tensor call "object point" is constructed to represent the corners of th
 
  `object_points` and `image_points` used to compute the camera calibration and distortion coefficients with `cv2.calibrateCamera()` function.  The images are then undistorted with `cv2.undistort()` function. Here is an example of the original image and undistorted image
 
-![alt text][image16]
+![alt text][image16]  
 
 ### Pipeline (single images)
 
 #### 1. Provide an example of a distortion-corrected image.
 
-![alt text][image17]
+![alt text][image17]  
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
 The code to generate binary threshold images can be found in `detect.py`. The selection of color schemes and gradient was more of a trial and error. RGB, GRAY, HLS, HSV, YUV schemes were explored along with Sobel gradients, magnitude and direction transforms. Below are some visualization of the schemes.
 
-![alt text][image13]
-![alt text][image5]
-![alt text][image6]
-![alt text][image7]
-![alt text][image20]
+![alt text][image13]  
+![alt text][image5]  
+![alt text][image6]  
+![alt text][image7]  
+![alt text][image20]  
 
 It was found that a combination of Sobel x gradient on S channel from HLS, L and B channels from LAB performed better than
 Sobel gray and S channel suggested in the notes. Sobel gradient is wit respect to x-direction with a kernel size of 3 and
@@ -83,17 +82,17 @@ def color_threshold(image):
     l_binary[(L > 200) & (L <= 255)] = 1
 
     return l_binary | b_binary | sobel_s
-```
+```  
 
-![alt text][image3]
+![alt text][image3]  
 
 Combination of L, B and Sobel SX binary images
 
-![alt text][image4]
+![alt text][image4]  
 
 The following are examples of color threshold on few images with perspective transform.
-![alt text][image1]
-![alt text][image2]
+![alt text][image1]  
+![alt text][image2]  
 
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
@@ -111,17 +110,17 @@ This resulted in the following source and destination points:
 
 Here are example of perspective transforms
 
-![alt text][image12]
-![alt text][image11]
+![alt text][image12]  
+![alt text][image11]  
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 The detection is mostly performed with histogram and sliding-window techniques suggested in the notes. First an histogram of the lower pat of the image is taken to get a sense of the location of the lane lines. Then a sliding window with a predefined margin is run from the bottom of the image to the top collecting pixel indices that satisfy the predefined pixel density in each window. From the indices, corresponding (x, y) coordinates are determined and a polynomial of order 2 is fit using `np.polyfit` function that approximately describe the location of lanes on the image. The code does not keep tack of previous lane line detection but rather starts again with the histogram and sliding window. The function `find_inital_lines()` can be found in `detect.py`. This function takes a warped image, margin size and pixel density as arguments and return the left and right fit lines.   
 
-![alt text][image19]
-![alt text][image15]
-![alt text][image10]
-![alt text][image18]
+![alt text][image19]  
+![alt text][image15]  
+![alt text][image10]  
+![alt text][image18]  
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -129,8 +128,8 @@ The code can be found in the `draw_lines()` function. The code mostly follows su
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-![alt text][image8]
-![alt text][image9]
+![alt text][image8]  
+![alt text][image9]  
 
 ---
 
