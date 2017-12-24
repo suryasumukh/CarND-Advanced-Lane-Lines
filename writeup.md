@@ -1,5 +1,4 @@
 ## Advanced Lane Finding Project
----
 
 The goals / steps of this project are the following:
 
@@ -14,26 +13,26 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output_images/color_threshold1.png ""
-[image2]: ./output_images/color_threshold2.png ""
-[image3]: ./output_images/combined.png ""
-[image4]: ./output_images/combined1.png ""
-[image5]: ./output_images/hls.png ""
-[image6]: ./output_images/hsv.png ""
-[image7]: ./output_images/lab.png ""
-[image8]: ./output_images/lane1.png ""
-[image9]: ./output_images/lane2.png ""
-[image10]: ./output_images/lane_fit.png ""
-[image11]: ./output_images/perspective1.png ""
-[image12]: ./output_images/perspective2.png ""
-[image13]: ./output_images/rgb.png ""
-[image14]: ./output_images/save_output_here.txt ""
-[image15]: ./output_images/sliding_window.png ""
-[image16]: ./output_images/undistorted1.png ""
-[image17]: ./output_images/undistorted2.png ""
-[image18]: ./output_images/unwarped.png ""
-[image19]: ./output_images/warped.png ""
-[image20]: ./output_images/yuv.png ""
+[image1]: ./output_images/color_threshold1.png ""  
+[image2]: ./output_images/color_threshold2.png ""  
+[image3]: ./output_images/combined.png ""  
+[image4]: ./output_images/combined1.png ""  
+[image5]: ./output_images/hls.png ""  
+[image6]: ./output_images/hsv.png ""  
+[image7]: ./output_images/lab.png ""  
+[image8]: ./output_images/lane1.png ""  
+[image9]: ./output_images/lane2.png ""  
+[image10]: ./output_images/lane_fit.png ""  
+[image11]: ./output_images/perspective1.png ""  
+[image12]: ./output_images/perspective2.png ""  
+[image13]: ./output_images/rgb.png ""  
+[image14]: ./output_images/save_output_here.txt ""  
+[image15]: ./output_images/sliding_window.png ""  
+[image16]: ./output_images/undistorted1.png ""  
+[image17]: ./output_images/undistorted2.png ""  
+[image18]: ./output_images/unwarped.png ""  
+[image19]: ./output_images/warped.png ""  
+[image20]: ./output_images/yuv.png ""  
 
 ### Camera Calibration
 
