@@ -49,7 +49,7 @@ def color_threshold(image):
 
     L = cv2.cvtColor(image, cv2.COLOR_RGB2LAB)[:, :, 0]
     l_binary = np.zeros_like(L)
-    l_binary[(L > 200) & (L <= 255)] = 1
+    l_binary[(L > 225) & (L <= 255)] = 1
 
     return l_binary | b_binary | sobel_s
 
@@ -198,7 +198,7 @@ def draw_lines(rgb, left_fit, right_fit, Minv):
     # Position wrt center of the lane.
     lane_centre = (left_fitx[-1] + right_fitx[-1]) / 2.0
     camera_centre = rgb.shape[1] / 2.0
-    diff = np.round(camera_centre - lane_centre, 2)
+    diff = np.round((camera_centre - lane_centre)*xm_per_pix, 2)
 
     pos_text = "Offset from centre: {} m".format(diff)
 
