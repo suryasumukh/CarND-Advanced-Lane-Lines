@@ -64,7 +64,7 @@ The code to generate binary threshold images can be found in `detect.py`. The se
 
 It was found that a combination of Sobel x gradient on S channel from HLS, L and B channels from LAB performed better than
 Sobel gray and S channel suggested in the notes. Sobel gradient is wit respect to x-direction with a kernel size of 3 and
-threshold between 30 and 100. The B channel has a threshold of [150, 255] and the L channel has a threshold of (200, 255].
+threshold between 30 and 100. The B channel has a threshold of [150, 255] and the L channel has a threshold of (225, 255].
   The combined binary is a bitwise-or of the Sobel-sx, L and B channel binaries.
 
 ```python
@@ -78,7 +78,7 @@ def color_threshold(image):
 
     L = cv2.cvtColor(image, cv2.COLOR_RGB2LAB)[:, :, 0]
     l_binary = np.zeros_like(L)
-    l_binary[(L > 200) & (L <= 255)] = 1
+    l_binary[(L > 225) & (L <= 255)] = 1
 
     return l_binary | b_binary | sobel_s
 ```  
